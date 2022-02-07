@@ -637,81 +637,6 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 								<?\Aspro\Functions\CAsproMaxItem::showDelayCompareBtn(array_merge($arParams, $addParams), $arResult, $arAddToBasketData, $totalCount, $bUseSkuProps, 'list static sm', false, false, '_small', $currentSKUID, $currentSKUIBlock);?>
 							</div>
 						</div>
-						<?//article,rating,brand?>
-						<div class="col-auto">
-							<div class="product-info-headnote__inner">
-								<?$isArticle=(strlen($arResult["CML2_ARTICLE"]["VALUE"]) || ($arResult['SHOW_OFFERS_PROPS'] && $showCustomOffer));?>
-								<?if($arParams["SHOW_RATING"] == "Y"):?>
-									<div class="product-info-headnote__rating">
-										<?$frame = $this->createFrame('dv_'.$arResult["ID"])->begin();?>
-											<div class="rating">
-												<?
-												global $arTheme;
-												if($arParams['REVIEWS_VIEW'] == 'EXTENDED'):?>
-													<div class="blog-info__rating--top-info pointer">
-														<div class="votes_block nstar with-text" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-															<meta itemprop="ratingValue" content="<?=($arResult['PROPERTIES']['EXTENDED_REVIEWS_RAITING']['VALUE'] ? $arResult['PROPERTIES']['EXTENDED_REVIEWS_RAITING']['VALUE'] : 5)?>" />
-															<meta itemprop="reviewCount" content="<?=(intval($arResult['PROPERTIES']['EXTENDED_REVIEWS_COUNT']['VALUE']) ? intval($arResult['PROPERTIES']['EXTENDED_REVIEWS_COUNT']['VALUE']) : 1)?>" />
-															<meta itemprop="bestRating" content="5" />
-															<meta itemprop="worstRating" content="0" />
-															<div class="ratings">
-																<?$message = $arResult['PROPERTIES']['EXTENDED_REVIEWS_COUNT']['VALUE'] ? GetMessage('VOTES_RESULT', array('#VALUE#' => $arResult['PROPERTIES']['EXTENDED_REVIEWS_RAITING']['VALUE'])) : GetMessage('VOTES_RESULT_NONE')?>
-																<div class="inner_rating" title="<?=$message?>">
-																	<?for($i=1;$i<=5;$i++):?>
-																		<div class="item-rating <?=$i<=$arResult['PROPERTIES']['EXTENDED_REVIEWS_RAITING']['VALUE'] ? 'filed' : ''?>"><?=CMax::showIconSvg("star", SITE_TEMPLATE_PATH."/images/svg/catalog/star_small.svg");?></div>
-																	<?endfor;?>
-																</div>
-															</div>
-														</div>
-														<?if($arResult['PROPERTIES']['EXTENDED_REVIEWS_COUNT']['VALUE']):?>
-															<span class="font_sxs"><?=$arResult['PROPERTIES']['EXTENDED_REVIEWS_COUNT']['VALUE']?></span>
-														<?endif;?>
-													</div>
-												<?else:?>
-													<?$APPLICATION->IncludeComponent(
-														"bitrix:iblock.vote",
-														"element_rating",
-														Array(
-															"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-															"IBLOCK_ID" => $arResult["IBLOCK_ID"],
-															"ELEMENT_ID" => $arResult["ID"],
-															"MAX_VOTE" => 5,
-															"VOTE_NAMES" => array(),
-															"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-															"CACHE_TIME" => $arParams["CACHE_TIME"],
-															"DISPLAY_AS_RATING" => 'vote_avg'
-														),
-														$component, array("HIDE_ICONS" =>"Y")
-													);?>
-												<?endif;?>
-											</div>
-										<?$frame->end();?>
-									</div>
-								<?endif;?>
-								<?if($isArticle):?>
-									<div class="product-info-headnote__article">
-										<div class="article muted font_xs" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue" <?if($arResult['SHOW_OFFERS_PROPS']){?>id="<? echo $arItemIDs["ALL_ITEM_IDS"]['DISPLAY_PROP_ARTICLE_DIV'] ?>" style="display: none;"<?}?>>
-											<span class="article__title" itemprop="name"><?=$arResult["CML2_ARTICLE"]["NAME"];?>:</span>
-											<span class="article__value" itemprop="value"><?=$arResult["CML2_ARTICLE"]["VALUE"]?></span>
-										</div>
-									</div>
-								<?endif;?>
-								<?if($arResult["BRAND_ITEM"]){?>
-									<div class="product-info-headnote__brand">
-										<div class="brand">
-											<meta itemprop="brand" content="<?=$arResult["BRAND_ITEM"]["NAME"]?>" />
-											<?if(!$arResult["BRAND_ITEM"]["IMAGE"]):?>
-												<a href="<?=$arResult["BRAND_ITEM"]["DETAIL_PAGE_URL"]?>" class="brand__link dark_link"><?=$arResult["BRAND_ITEM"]["NAME"]?></a>
-											<?else:?>
-												<a class="brand__picture" href="<?=$arResult["BRAND_ITEM"]["DETAIL_PAGE_URL"]?>">
-													<img  src="<?=$arResult["BRAND_ITEM"]["IMAGE"]["src"]?>" alt="<?=$arResult["BRAND_ITEM"]["IMAGE"]["ALT"]?>" title="<?=$arResult["BRAND_ITEM"]["IMAGE"]["TITLE"]?>" />
-												</a>
-											<?endif;?>
-										</div>
-									</div>
-								<?}?>
-							</div>
-						</div>
 					</div>
 				</div>
 
@@ -797,7 +722,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 					<?//discount,buy|order|subscribe?>
 					<div class="product-action flex-50">
 						<div class="info_item">
-							<div class="middle-info-wrapper main_item_wrapper">	
+							<div class="middle-info-wrapper main_item_wrapper">
 								<div class="shadowed-block">
 									<?if($bComplect):?>
 										<div class="complect_prices_block">
@@ -805,7 +730,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 												<div class="prices-wrapper">
 													<div class="price font-bold font_mxs">
 														<div class="price_value_block values_wrapper">
-															<span class="price_value complect_price_value">0</span>												
+															<span class="price_value complect_price_value">0</span>
 															<span class="price_currency">
 																<?//$arResult['MIN_PRICE']['CURRENCY']?>
 																<?=str_replace("999", "", \CCurrencyLang::CurrencyFormat("999", $arResult["CURRENCIES"][0]["CURRENCY"]))?>
@@ -989,7 +914,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 									<?//services?>
 									<div class="js-services"></div>
 								</div>
-								
+
 							</div>
 
 							<?//delivery calculate?>
@@ -997,7 +922,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 								(
 									!$arResult["OFFERS"] &&
 									$arAddToBasketData["ACTION"] == "ADD" &&
-									$arAddToBasketData["CAN_BUY"] && 
+									$arAddToBasketData["CAN_BUY"] &&
 									!$bComplect
 								) ||
 								(
@@ -1045,28 +970,6 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 									</div>
 								</div>
 							<?endif;?>
-
-							<?//brand?>
-							<?$this->SetViewTarget('PRODUCT_SIDE_INFO', 900);?>
-								<?if($arResult['BRAND_ITEM']):?>
-									<div class="brand-detail">
-										<div class="brand-detail-info bordered rounded3">
-											<?if($arResult['BRAND_ITEM']["IMAGE"]):?>
-												<div class="brand-detail-info__image"><a href="<?=$arResult['BRAND_ITEM']["DETAIL_PAGE_URL"];?>"><img src="<?=$arResult['BRAND_ITEM']["IMAGE"]["src"];?>" alt="<?=$arResult['BRAND_ITEM']["NAME"];?>" title="<?=$arResult['BRAND_ITEM']["NAME"];?>" itemprop="image"></a></div>
-											<?endif;?>
-											<div class="brand-detail-info__preview">
-												<?if($arResult['BRAND_ITEM']["PREVIEW_TEXT"]):?>
-													<div class="text muted777 font_xs"><?=$arResult['BRAND_ITEM']["PREVIEW_TEXT"];?></div>
-												<?endif;?>
-												<?if($arResult['SECTION']):?>
-													<div class="link font_xs"><a href="<?= $arResult['BRAND_ITEM']['CATALOG_PAGE_URL'] ?>" target="_blank"><?=GetMessage("ITEMS_BY_SECTION")?></a></div>
-												<?endif;?>
-												<div class="link font_xs"><a href="<?=$arResult['BRAND_ITEM']["DETAIL_PAGE_URL"];?>" target="_blank"><?=GetMessage("ITEMS_BY_BRAND", array("#BRAND#" => $arResult['BRAND_ITEM']["NAME"]))?></a></div>
-											</div>
-										</div>
-									</div>
-								<?endif;?>
-							<?$this->EndViewTarget();?>
 						</div>
 					</div>
 				</div>

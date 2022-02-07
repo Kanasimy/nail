@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="87705ef5-d9f0-4b1e-af5e-6d569aecb6e7" name="cosmos" url="http://217.25.88.128">
+        <fileTransfer accessType="SFTP" host="217.25.88.128" port="22" sshConfigId="c3a7785b-e7de-4161-9dea-4c0044fcabef" sshConfig="root@217.25.88.128:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="bf26c058-6873-4fd2-b149-95cfdd524ce7" name="корень" url="http://217.25.88.128">
+        <fileTransfer accessType="SFTP" host="217.25.88.128" port="22" sshConfigId="c3a7785b-e7de-4161-9dea-4c0044fcabef" sshConfig="root@217.25.88.128:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
