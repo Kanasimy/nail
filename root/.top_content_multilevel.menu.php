@@ -1,0 +1,95 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Каталог", 
+		"/catalog/index.php", 
+		Array(), 
+		Array("NOT_VISIBLE"=>"Y", "CLASS"=>"catalog wide_menu ", "ICON"=>"icon_catalog"), 
+		"" 
+	),	
+Array(
+		"Встраиваемые пылесборники", 
+		"/catalog/vstraivaemye/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Настольные пылесборники", 
+		"/catalog/nastolnye/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Пылесборники для педикюра", 
+		"/catalog/pedikyurnye/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Пилки-основы", 
+		"/catalog/pilki_osnovy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аксессуары", 
+		"/catalog/aksessuary/", 
+		Array(), 
+		Array(), 
+		"" 
+	),	
+	Array(
+		"О компании", 
+		"/company/index.php", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Оплата", 
+		"/pay/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Доставка", 
+		"/delivery/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Отзывы", 
+		"/reviews/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Помощь", 
+		"/help/index.php/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Стать партнёром", 
+		"/stat-partnyerom/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
