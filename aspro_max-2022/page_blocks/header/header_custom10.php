@@ -26,7 +26,7 @@ $bColoredHeader = true;
 						),
 						false
 					);?>
-					
+
 					<div class="top-block-item phones">
 						<div class="phone-block icons">
 							<?if($bPhone):?>
@@ -40,14 +40,6 @@ $bColoredHeader = true;
 									<span class="callback-block animate-load font_upper_xs colored" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback"><?=GetMessage("CALLBACK")?></span>
 								</div>
 							<?endif;?>
-						</div>
-					</div>
-
-					<div class="top-block-item show-fixed top-ctrl">
-						<div class="personal_wrap">
-							<div class="personal top login font_upper">
-								<?=CMax::ShowCabinetLink(true, true);?>
-							</div>
 						</div>
 					</div>
 				</div>

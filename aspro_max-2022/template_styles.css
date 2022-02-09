@@ -20731,3 +20731,6 @@ table.contacts-stores tr.item td:last-of-type {
     line-height: 1.692em;
   }
 }
+
+/* Custom theme */
+.basket-link.delay {display:none}
