@@ -1252,7 +1252,6 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 		<?$APPLICATION->IncludeFile(SITE_DIR."include/tab_catalog_detail_delivery.php", array(), array("MODE" => "html", "NAME" => GetMessage('TITLE_DELIVERY')));?>
 	<?$this->EndViewTarget();?>
 <?endif;?>
-
 <?if($arResult['VIDEO']):?>
 	<?$this->SetViewTarget('PRODUCT_VIDEO_INFO');?>
 		<div class="hidden_print">
@@ -1270,7 +1269,6 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 		</div>
 	<?$this->EndViewTarget();?>
 <?endif;?>
-
 <?//files?>
 <?$instr_prop = ($arParams["DETAIL_DOCS_PROP"] ? $arParams["DETAIL_DOCS_PROP"] : "INSTRUCTIONS");?>
 <?
@@ -1516,3 +1514,4 @@ if ($arResult['CATALOG'] && $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST'] == 'Y' &
 ?>
 </div>
 <?$this->EndViewTarget();?>
+

@@ -21,7 +21,7 @@ $bServicesRegionality = $arTheme['SERVICES_REGIONALITY']['VALUE'] === 'Y' && $ar
 
 if($arTheme['USE_DETAIL_TABS']['VALUE'] != 'Y'){
 	$arBlockOrder = explode(",", $arParams["DETAIL_BLOCKS_ALL_ORDER"]);
-	
+
 	//add new blocks in update
 	if( !in_array('buy_services', $arBlockOrder) ){
 		$arBlockOrder[] = 'buy_services';
@@ -176,14 +176,14 @@ if( !in_array('modules', $arBlockOrder) ){
 
 	<?$bShowAllServicesInAnounce = $templateData["OFFERS_INFO"]["OFFERS_MORE"] || (isset($arParams["SHOW_ALL_SERVICES_IN_SLIDE"]) && $arParams["SHOW_ALL_SERVICES_IN_SLIDE"] === 'Y');?>
 	<?if($templateData['LINK_SERVICES']):?>
-		<?//buy_services in anounce	
-		ob_start();		
+		<?//buy_services in anounce
+		ob_start();
 			$GLOBALS['arBuyServicesFilter']['ID'] = $templateData['LINK_SERVICES'];
 			$GLOBALS['arBuyServicesFilter']['PROPERTY_ALLOW_BUY_VALUE'] = 'Y';
 			if( $bServicesRegionality && isset($arRegion['ID']) ){
 				$GLOBALS['arBuyServicesFilter'][] = array( "PROPERTY_LINK_REGION" => $arRegion['ID'] );
 			}
-			?>										
+			?>
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.section",
 				"services_list",
@@ -213,8 +213,8 @@ if( !in_array('modules', $arBlockOrder) ){
 		if($htmlBuyServicesAnounce && trim($htmlBuyServicesAnounce) && strpos($htmlBuyServicesAnounce, 'error') === false){?>
 			<?
 			$htmlBuyServicesAnounceBefore = '<div class=" buy_services_wrap in_announce js-services-hide" data-parent_product='.$arResult["ID"].'>';
-			$htmlBuyServicesAnounce = $htmlBuyServicesAnounceBefore.$htmlBuyServicesAnounce.'</div>';			
-			$APPLICATION->AddViewContent('PRODUCT_SIDE_INFO', $htmlBuyServicesAnounce, 550);			
+			$htmlBuyServicesAnounce = $htmlBuyServicesAnounceBefore.$htmlBuyServicesAnounce.'</div>';
+			$APPLICATION->AddViewContent('PRODUCT_SIDE_INFO', $htmlBuyServicesAnounce, 550);
 			?>
 		<?}?>
 	<?endif;?>
@@ -222,13 +222,13 @@ if( !in_array('modules', $arBlockOrder) ){
 	<?
 	$buyServices = false;
 	if(!$bShowAllServicesInAnounce):
-		ob_start();		
+		ob_start();
 			$GLOBALS['arBuyServicesFilter']['ID'] = $templateData['LINK_SERVICES'];
 			$GLOBALS['arBuyServicesFilter']['PROPERTY_ALLOW_BUY_VALUE'] = 'Y';
 			if( $bServicesRegionality && isset($arRegion['ID']) ){
 				$GLOBALS['arBuyServicesFilter'][] = array( "PROPERTY_LINK_REGION" => $arRegion['ID'] );
 			}
-			?>										
+			?>
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.section",
 				"services_list",
@@ -391,7 +391,7 @@ if( !in_array('modules', $arBlockOrder) ){
 				<?elseif($code == 'tabs'):?>
 					<?if($bShowDetailTextTab || $bShowPropsTab || $bShowVideoTab || $bShowHowBuyTab || $bShowPaymentTab || $bShowDeliveryTab || $bShowStoresTab || $bShowCustomTab || $bShowReviewsTab || $bShowBuyServicesTab):?>
 						<div class="ordered-block js-store-scroll tabs-block">
-							<?if($i > 1):?>
+							<?if(false):?>
 								<div class="tabs arrow_scroll">
 									<ul class="nav nav-tabs font_upper_md">
 										<?$iTab = 0;?>
@@ -463,7 +463,7 @@ if( !in_array('modules', $arBlockOrder) ){
 												<?if($bShowBuyServicesTab):?>
 													<li class="bordered rounded3 <?=(!($iTab++) ? 'active' : '')?>">
 														<a href="#buy_services" data-toggle="tab">
-															<?=$arParams["TAB_BUY_SERVICES_NAME"];?>													
+															<?=$arParams["TAB_BUY_SERVICES_NAME"];?>
 														</a>
 													</li>
 												<?endif;?>
@@ -472,7 +472,7 @@ if( !in_array('modules', $arBlockOrder) ){
 									</ul>
 								</div>
 							<?endif;?>
-							<div class="tab-content<?=($i <= 1 ? ' not_tabs' : '')?>">
+							<div class="tab-content<?=(true ? ' not_tabs' : '')?>">
 								<?$iTab = 0;?>
 								<?foreach($arTabOrder as $value):?>
 									<?//detail text?>
@@ -817,7 +817,7 @@ if( !in_array('modules', $arBlockOrder) ){
 				<?elseif($code == "buy_services" && $bShowBuyServicesTab):?>
 					<div class="ordered-block <?=$code?> js-scroll-services">
 						<div class="ordered-block__title option-font-bold font_lg">
-							<?=$arParams["TAB_BUY_SERVICES_NAME"];?>					
+							<?=$arParams["TAB_BUY_SERVICES_NAME"];?>
 						</div>
 						<div class='buy_services_wrap' data-parent_product=<?=$arResult['ID']?>>
 							<?=$htmlBuyServices;?>
@@ -1017,7 +1017,7 @@ if( !in_array('modules', $arBlockOrder) ){
 								"PAGER_TEMPLATE" => ".default",
 								"DISPLAY_TOP_PAGER" => "N",
 								"DISPLAY_BOTTOM_PAGER" => "Y",
-								"PAGER_TITLE" => "Новости",
+								"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 								"PAGER_SHOW_ALWAYS" => "N",
 								"PAGER_DESC_NUMBERING" => "N",
 								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -1090,7 +1090,7 @@ if( !in_array('modules', $arBlockOrder) ){
 								"PAGER_TEMPLATE" => ".default",
 								"DISPLAY_TOP_PAGER" => "N",
 								"DISPLAY_BOTTOM_PAGER" => "Y",
-								"PAGER_TITLE" => "Новости",
+								"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 								"PAGER_SHOW_ALWAYS" => "N",
 								"PAGER_DESC_NUMBERING" => "N",
 								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -1163,7 +1163,7 @@ if( !in_array('modules', $arBlockOrder) ){
 								"PAGER_TEMPLATE" => ".default",
 								"DISPLAY_TOP_PAGER" => "N",
 								"DISPLAY_BOTTOM_PAGER" => "Y",
-								"PAGER_TITLE" => "Новости",
+								"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 								"PAGER_SHOW_ALWAYS" => "N",
 								"PAGER_DESC_NUMBERING" => "N",
 								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -1238,7 +1238,7 @@ if( !in_array('modules', $arBlockOrder) ){
 								"PAGER_TEMPLATE" => ".default",
 								"DISPLAY_TOP_PAGER" => "N",
 								"DISPLAY_BOTTOM_PAGER" => "Y",
-								"PAGER_TITLE" => "Новости",
+								"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 								"PAGER_SHOW_ALWAYS" => "N",
 								"PAGER_DESC_NUMBERING" => "N",
 								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -1313,7 +1313,7 @@ if( !in_array('modules', $arBlockOrder) ){
 								"PAGER_TEMPLATE" => ".default",
 								"DISPLAY_TOP_PAGER" => "N",
 								"DISPLAY_BOTTOM_PAGER" => "Y",
-								"PAGER_TITLE" => "Новости",
+								"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 								"PAGER_SHOW_ALWAYS" => "N",
 								"PAGER_DESC_NUMBERING" => "N",
 								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
