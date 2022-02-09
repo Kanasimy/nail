@@ -37,6 +37,8 @@
 
 		<?if($bShowCallBackBlock || $bShowQuestionBlock || $bShowReviewBlock):?>
 			<div class="form-action-wrapper">
+				<?\Aspro\Functions\CAsproMax::showSideFormLink('CALLBACK', $bShowCallBackBlock);?>
+				<?\Aspro\Functions\CAsproMax::showSideFormLink('ASK', $bShowQuestionBlock);?>
 				<?\Aspro\Functions\CAsproMax::showSideFormLink('REVIEW', $bShowReviewBlock);?>
 			</div>
 		<?endif;?>
